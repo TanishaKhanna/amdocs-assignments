@@ -1,0 +1,76 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2822
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww28600\viewh18000\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 class Student \{\
+    String name;\
+    int age;\
+    char section;\
+    char gender;\
+    int subject1, subject2, subject3;\
+    int total;\
+    double percentage;\
+\
+    // Constructor with all subjects\
+    Student(String name, int age, char section, char gender, int subject1, int subject2, int subject3) \{\
+        this.name = name;\
+        this.age = age;\
+        this.section = section;\
+        this.gender = gender;\
+        this.subject1 = subject1;\
+        this.subject2 = subject2;\
+        this.subject3 = subject3;\
+        calculateResult();\
+    \}\
+\
+    // Constructor without subject1 (set subject1 = 0 for s2 and s3)\
+    Student(String name, int age, char section, char gender, int subject2, int subject3) \{\
+        this.name = name;\
+        this.age = age;\
+        this.section = section;\
+        this.gender = gender;\
+        this.subject1 = 0;\
+        this.subject2 = subject2;\
+        this.subject3 = subject3;\
+        calculateResult();\
+    \}\
+\
+    // Method to calculate total and percentage\
+    void calculateResult() \{\
+        total = subject1 + subject2 + subject3;\
+        percentage = (total / 300.0) * 100;  // assuming each subject is out of 100\
+    \}\
+\
+    // Display method\
+    void display() \{\
+        System.out.println("Name: " + name);\
+        System.out.println("Age: " + age);\
+        System.out.println("Section: " + section);\
+        System.out.println("Gender: " + gender);\
+        System.out.println("Marks -> Subject1: " + subject1 + ", Subject2: " + subject2 + ", Subject3: " + subject3);\
+        System.out.println("Total Marks: " + total);\
+        System.out.println("Percentage: " + percentage + "%");\
+        System.out.println("--------------------------------------");\
+    \}\
+\
+    // Main method\
+    public static void main(String[] args) \{\
+        // s1 and s4 have all 3 subjects\
+        Student s1 = new Student("Rohit", 20, 'A', 'M', 85, 90, 80);\
+        Student s4 = new Student("Priya", 21, 'B', 'F', 78, 88, 92);\
+\
+        // s2 and s3 have subject1 = 0\
+        Student s2 = new Student("Aman", 19, 'A', 'M', 70, 75);\
+        Student s3 = new Student("Neha", 20, 'B', 'F', 65, 80);\
+\
+        // Display all students\
+        s1.display();\
+        s2.display();\
+        s3.display();\
+        s4.display();\
+    \}\
+\}\
+}
